@@ -29,7 +29,7 @@ public class TarefaController {
 	@Autowired
 	TarefaRepository tarefaRepository;
 	
-	@GetMapping("/tutorials")
+	@GetMapping("/tarefas")
 	public ResponseEntity<List<Tarefa>> getAllTutorials(@RequestParam(required = false) String title) {
 	    try {
 	      List<Tarefa> tarefas = new ArrayList<Tarefa>();
@@ -49,7 +49,7 @@ public class TarefaController {
 	    }
 	  }
 	
-	@GetMapping("/tutorials/{id}")
+	@GetMapping("/tarefas/{id}")
 	  public ResponseEntity<Tarefa> getTutorialById(@PathVariable("id") long id) {
 	    Optional<Tarefa> tarefaData = tarefaRepository.findById(id);
 
@@ -60,7 +60,7 @@ public class TarefaController {
 	    }
 	  }
 	
-	@PostMapping("/tutorials")
+	@PostMapping("/tarefas")
 	  public ResponseEntity<Tarefa> createTutorial(@RequestBody Tarefa tarefa) {
 	    try {
 	      Tarefa _tarefa = tarefaRepository
@@ -72,7 +72,7 @@ public class TarefaController {
 	    }
 	  }
 	
-	 @PutMapping("/tutorials/{id}")
+	 @PutMapping("/tarefas/{id}")
 	  public ResponseEntity<Tarefa> updateTutorial(@PathVariable("id") long id, @RequestBody Tarefa tarefa) {
 	    Optional<Tarefa> tarefaData = tarefaRepository.findById(id);
 
@@ -88,7 +88,7 @@ public class TarefaController {
 	    }
 	  }
 	 
-	 @DeleteMapping("/tutorials/{id}")
+	 @DeleteMapping("/tarefas/{id}")
 	  public ResponseEntity<HttpStatus> deleteTarefa(@PathVariable("id") long id) {
 	    try {
 	      tarefaRepository.deleteById(id);
